@@ -4,30 +4,30 @@ using namespace std;
 
 vector<int> shortestAlternatingPaths (int n, vector<vector<int>> red_edges, vector<vector<int>> blue_edges) 
 {
-    vector<bool> red(n,0);\\indicator for whether or not a vertex has been visited by a red edge
-    vector<bool> blue(n,0);\\indicator for whether or not a vertex has been visited by a blue edge
+    vector<bool> red(n,0);//indicator for whether or not a vertex has been visited by a red edge
+    vector<bool> blue(n,0);//indicator for whether or not a vertex has been visited by a blue edge
     vector<int> result(n,-1);
     vector<vector<int>> current;
-    vector<vector<vector<int>>> graph(n);\\adjacency list representation of graph
+    vector<vector<vector<int>>> graph(n);//adjacency list representation of graph
 
     int steps = 0;
     result[0] = 0;
     
     for (vector<int> i : red_edges){
-        graph[i[0]].push_back({i[1],1});\\1 represent a red edge
+        graph[i[0]].push_back({i[1],1});// represent a red edge
     }
     for (vector<int> i : blue_edges){
-        graph[i[0]].push_back({i[1],0});\\0 represent a red edge
+        graph[i[0]].push_back({i[1],0});//0 represent a red edge
     }
     
-    \\initialize bfs queue to be all adjecent node to node 0
+    //initialize bfs queue to be all adjecent node to node 0
     for (vector<int> i: graph[0]){
         current.push_back(i);
         if (i[1]) red[i[0]] = 1;
         else blue[i[0]] = 1;
     }
     
-    \\bfs to check all nodes that is possible to be visited by route of alternating color
+    //bfs to check all nodes that is possible to be visited by route of alternating color
     while (!current.empty()){
         steps++;
         vector<vector<int>> next;
