@@ -11,7 +11,6 @@ double myPow(double x, int n) {
 int main(){
     double x = 10.00;
     int n = 20;
-    cout<<222<<endl;
     cout<<myPow(x,n)<<endl;
 
     return 0;
