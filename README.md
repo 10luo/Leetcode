@@ -1,2 +1,2 @@
 # Leetcode
-solutions to leetcode problems
+My cpp solutions to some leetcode problems
